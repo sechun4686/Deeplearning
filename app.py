@@ -107,6 +107,5 @@ with col1:
     st.download_button("CSV 다운로드", csv, "results.csv", "text/csv")
 
 with col2:
-    buf = io.BytesIO()
-    fig3.write_image(buf, format="png", width=1200, height=500)
-    st.download_button("히트맵 PNG 다운로드", buf.getvalue(), "heatmap.png", "image/png")
+    html_str = fig3.to_html(include_plotlyjs='cdn')
+    st.download_button("히트맵 HTML 다운로드", html_str, "heatmap.html", "text/html")
